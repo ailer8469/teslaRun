@@ -43,7 +43,7 @@
         </div>
 
         <a-scene rain="count:1000" background="color:#003D79;" 
-        inspector-plugin-recast>
+        inspector-plugin-recast physics="debug: true;">
             <a-assets>
                 <img id="sky" src="assists/sky.jpg" />
                 <!-- <a-asset-item id="nav" src="model/navmesh2.gltf"></a-asset-item> -->
@@ -82,9 +82,9 @@
 
             <a-entity id="theworld">
             <!-- city -->
-            <!-- <a-entity position="0 0.1 0">
+            <a-entity position="0 0.1 0">
                 <a-entity gltf-model="#city" scale="0.1 0.1 0.1"></a-entity>
-            </a-entity> -->
+            </a-entity>
             <!-- camera -->
             <a-entity id="camera" 
                         rotation="0 0 0" position="0 8 10"        
