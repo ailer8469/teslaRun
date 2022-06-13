@@ -5,7 +5,6 @@
     <!-- aframe itself -->
     <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
     <!--aframe附加功能 movement-controls -->
-    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
     <!-- physics and other extras -->
     <script src="js/physic.js"></script>
     <!-- inspector-plugin-recast 可動範圍匯出gltf編輯器 -->
@@ -43,7 +42,7 @@
             </div>
         </div>
 
-        <a-scene rain="count:1000" background="color:#003D79;" >
+        <a-scene rain="count:1000" background="color:#003D79;" physics-world="" >
             <a-assets>
                 <img id="sky" src="assists/sky.jpg" />
                 <!-- <a-asset-item id="nav" src="model/navmesh2.gltf"></a-asset-item> -->
