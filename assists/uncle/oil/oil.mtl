@@ -1,0 +1,181 @@
+newmtl Eyelashes
+d 0
+Kd 0.0470588 0.0431373 0.0352941
+map_D /Maps/ryeddie_lashes_1006.jpg
+
+newmtl Fingernails
+d 1
+Kd 1 1 1
+map_Kd /Maps/ryeddie_arms_1004.jpg
+
+newmtl Toenails
+d 1
+Kd 1 1 1
+map_Kd /Maps/ryeddie_legs_1003.jpg
+
+newmtl Cornea
+d 0
+Kd 1 1 1
+map_Kd /Maps/tex_eyes.jpg
+
+newmtl Pupils
+d 1
+Kd 1 1 1
+map_Kd /Maps/tex_eyes.jpg
+
+newmtl Face
+d 1
+Kd 1 1 1
+map_Kd /Maps/tex_face.jpg
+
+newmtl Lips
+d 1
+Kd 1 1 1
+map_Kd /Maps/tex_face.jpg
+
+newmtl Teeth
+d 1
+Kd 1 1 1
+map_Kd /Maps/ryeddie_mouth_1005.jpg
+
+newmtl Sclera
+d 1
+Kd 1 1 1
+map_Kd /Maps/tex_eyes.jpg
+
+newmtl Torso
+d 1
+Kd 1 1 1
+map_Kd /Maps/tex_torso.jpg
+
+newmtl Ears
+d 1
+Kd 1 1 1
+map_Kd /Maps/tex_face.jpg
+
+newmtl Irises
+d 1
+Kd 1 1 1
+map_Kd /Maps/tex_eyes.jpg
+
+newmtl Legs
+d 1
+Kd 1 1 1
+map_Kd /Maps/tex_legs.jpg
+
+newmtl EyeSocket
+d 1
+Kd 1 1 1
+map_Kd /Maps/tex_eyes.jpg
+
+newmtl EyeMoisture
+d 0
+Kd 1 1 1
+map_Kd /Maps/tex_eyes.jpg
+map_D /Maps/ryeddie_eyerefl01_1008.jpg
+
+newmtl Mouth
+d 1
+Kd 1 1 1
+map_Kd /Maps/ryeddie_mouth_1005.jpg
+
+newmtl Arms
+d 1
+Kd 1 1 1
+map_Kd /Maps/tex_arms.jpg
+
+newmtl LaceEnds
+d 1
+Kd 0.698039 0.698039 0.698039
+map_Kd /Maps/AHB_CW_Boots_02.jpg
+
+newmtl Laces
+d 1
+Kd 0.698039 0.698039 0.698039
+map_Kd /Maps/AHB_CW_Boots_02.jpg
+
+newmtl Eyelets
+d 1
+Kd 0.584314 0.584314 0.584314
+map_Kd /Maps/AHB_CW_Boots_02.jpg
+
+newmtl Boots
+d 1
+Kd 0.698039 0.698039 0.698039
+map_Kd /Maps/AHB_CW_Boots_02.jpg
+
+newmtl TopPadding
+d 1
+Kd 0.698039 0.698039 0.698039
+map_Kd /Maps/AHB_CW_Boots_02.jpg
+
+newmtl Soles
+d 1
+Kd 0.788235 0.788235 0.788235
+map_Kd /Maps/AHB_CW_Boots_02.jpg
+
+newmtl Rivets
+d 1
+Kd 1 1 1
+map_Kd /Maps/AHB_CW_JeansBelt_02.jpg
+
+newmtl BeltLoops
+d 1
+Kd 1 1 1
+map_Kd /Maps/AHB_CW_JeansBelt_02.jpg
+
+newmtl FrontPocketSeams
+d 1
+Kd 1 1 1
+map_Kd /Maps/AHB_CW_JeansBelt_02.jpg
+
+newmtl Pants
+d 1
+Kd 1 1 1
+map_Kd /Maps/AHB_CW_JeansBelt_02.jpg
+
+newmtl WaistBand
+d 1
+Kd 1 1 1
+map_Kd /Maps/AHB_CW_JeansBelt_02.jpg
+
+newmtl BackPockets
+d 1
+Kd 1 1 1
+map_Kd /Maps/AHB_CW_JeansBelt_02.jpg
+
+newmtl Button
+d 1
+Kd 1 1 1
+map_Kd /Maps/AHB_CW_JeansBelt_02.jpg
+
+newmtl Sleeves
+d 1
+Kd 0.858824 0.858824 0.858824
+map_Kd /Maps/AHB_CW_shirt_02.jpg
+
+newmtl TShirt
+d 1
+Kd 0.858824 0.858824 0.858824
+map_Kd /Maps/AHB_CW_shirt_02.jpg
+
+newmtl hat
+d 1
+Ns 1
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+Km 0
+map_Kd /Maps/Hat 1a.jpg
+
+newmtl pompom
+d 1
+Ns 1
+Ni 0
+Ka 0 0 0
+Kd 1 1 1
+Ks 0 0 0
+Km 0
+map_Kd /Maps/Hat 1a.jpg
+

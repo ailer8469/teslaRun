@@ -1,0 +1,234 @@
+<html>
+<head>
+    <title>轟隆隆 隆隆隆隆</title>
+    <!-- aframe itself -->
+    <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+    <!--aframe附加功能 movement-controls -->
+    <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.min.js"></script>
+    <!-- physics and other extras -->
+    <script src="https://codechangers.com/physics.js"></script>
+    <!-- inspector-plugin-recast 可動範圍匯出gltf編輯器 -->
+    <script src="https://recast-api.donmccurdy.com/aframe-inspector-plugin-recast.js"></script>
+    <!-- 下雨 -->
+    <script src="https://rawgit.com/takahirox/aframe-rain/master/build/aframe-rain.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="js/soundutils.js"></script>
+    <script src="js/jquery.waitforimages.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+    <body>
+        <div class="loading">
+            <div class="loader">
+                <div class="square" ></div>
+                <div class="square"></div>
+                <div class="square last"></div>
+                <div class="square clear"></div>
+                <div class="square"></div>
+                <div class="square last"></div>
+                <div class="square clear"></div>
+                <div class="square "></div>
+                <div class="square last"></div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <h1>Control Tesla</h1>
+            <p id="up">W</p>
+            <div class="control-btn">
+                <p id="left">A</p>
+                <p id="down">S</p>
+                <p id="right">D</p>
+            </div>
+        </div>
+
+        <a-scene rain="count:1000" background="color:#003D79;" 
+        inspector-plugin-recast>
+            <a-assets>
+                <img id="sky" src="assists/sky.jpg" />
+                <!-- <a-asset-item id="nav" src="model/navmesh2.gltf"></a-asset-item> -->
+                <a-asset-item id="car-obj" src="assists/tesla/Tesla_Cybertruck.obj"></a-asset-item> 
+                <a-asset-item id="car-mtl" src="assists/tesla/Tesla_Cybertruck.mtl"></a-asset-item>  
+                <a-asset-item id="poli-obj" src="assists/Police/policeman.obj"></a-asset-item> 
+                <a-asset-item id="poli-mtl" src="assists/Police/policeman.mtl"></a-asset-item> 
+                <a-asset-item id="city" src="assists/cityBuildings/scene.gltf"></a-asset-item> 
+                <audio id="startMusic" src="assists/nohit.mp3" preload="true" ></audio>
+
+                <!-- car -->
+                <a-asset-item id="ma-obj" src="assists/car/mazda-rx8/ma/mazda RX8.obj"></a-asset-item> 
+                <a-asset-item id="ma-mtl" src="assists/car/mazda-rx8/ma/mazda RX8.mtl"></a-asset-item> 
+                <a-asset-item id="un-obj" src="assists/uncle/oil/oil.obj"></a-asset-item> 
+                <a-asset-item id="un-mtl" src="assists/uncle/oil/oil.mtl"></a-asset-item> 
+                <a-asset-item id="class" src="assists/car/classic_muscle_car/scene.gltf"></a-asset-item> 
+                <a-asset-item id="police-car" src="assists/car/hawkins_police_car/scene.gltf"></a-asset-item> 
+
+                <a-mixin id="police"
+                dynamic-body="mass:1" 
+                scale="1.6 1.6 1.6" shadow>
+                </a-mixin>
+                <a-mixin id="policar"
+                dynamic-body="mass:4"
+                scale="2.4 2.4 2.4" shadow>
+                </a-mixin>
+                
+            </a-assets>
+            <!-- 坎入範圍 -->
+
+            <a-sound src="assists/rain.mp3" sound="volume:40; loop:true;" firstsound></a-sound>
+
+            <a-plane opacity="0"
+            static-body
+            rotation="-90 0 0" width="1000" height="1000"></a-plane>
+
+            <a-entity id="theworld">
+            <!-- city -->
+            <a-entity position="0 0.1 0">
+                <a-entity gltf-model="#city" scale="0.1 0.1 0.1"></a-entity>
+            </a-entity>
+            <!-- camera -->
+            <a-entity id="camera" 
+                        rotation="0 0 0" position="0 8 10"        
+                        movement-controls>
+                <a-entity camera position="0 1.6 0" look-controls>
+                    <a-entity cursor="rayOrigin: mouse" 
+                            raycaster="objects: .interactable">
+                    </a-entity>
+                </a-entity>
+            </a-entity>
+
+            <!-- light -->
+            <a-entity>
+                <a-light id="ambient" type="ambient" color="#FFFF" 
+            intensity="0.7">
+            </a-light>
+            <a-light id="spot" 
+                    type="spot" 
+                    color="#affdf8" 
+                    intensity="3" 
+                    penumbra="0.4" 
+                    angle="15" 
+                    light="castShadow:true" 
+                    position="0 30 0"
+                    rotation="-90 0 0"
+                    target="#car">
+            </a-light>
+            <a-light type="spot" color="#fff" intensity="2" penumbra="0.4" angle="30" light="castShadow: true" position="-18.73694 30.68923 25.57516" rotation="-90 0 0"></a-light>
+            <a-light type="spot" color="#fff" intensity="2" penumbra="0.4" angle="30" light="castShadow: true" position="26.16925 31.10626 18.30226" rotation="-90 0 0"></a-light>
+            <a-light type="spot" color="#fff" intensity="2" penumbra="0.4" angle="30" light="castShadow: true" position="-25.95663 31.49652 -16.86427" rotation="-90 0 0"></a-light>
+            <a-light type="spot" color="#fff" intensity="2" penumbra="0.4" angle="30" light="castShadow: true" position="17.16991 31.49652 -26.24371" rotation="-90 0 0"></a-light>
+            <a-light type="spot" color="#fff" intensity="2" penumbra="0.4" angle="30" light="color: #61986f; castShadow: true" position="17.16991 31.49652 -26.24371" rotation="180 0 0" id="streetlight"></a-light>
+            <a-light type="spot" color="#fff" intensity="2" penumbra="0.4" angle="30" light="color: #d33636; intensity: 4; angle: 50; castShadow: true" position="-28.87791 0.75722 -28.90388" rotation="90 0 0" id="streetlight-2"></a-light>
+            <a-light type="spot" color="#fff" intensity="1" penumbra="0.4" angle="30" light="color: #ffd4b8; castShadow: true" position="-4.50742 220.38626 -4.04825" rotation="-90 0 0" visible="" id="total" 
+            animation__pos="property: position;
+            easing:linear;
+            dir:alternate;
+            from:-20.50742 220.38626 20.04825;
+            to: 200.50742 220.38626 -200.04825;
+            dur:3000;
+            loop:true;"></a-light>
+            </a-entity>
+            
+
+            <a-entity id="car" position="0 3.5 -8" rotation="0 45 0">
+                <a-obj-model static-body
+                            id="tesla" src="#car-obj" mtl="#car-mtl" 
+                            scale="0.015 0.015 0.015" shadow>
+                </a-obj-model>
+                <a-text id="name" font="dejavu" value="Gotoo" position="0 2 0" color="red" width="20" align="center"></a-text>
+            </a-entity>
+
+            <a-entity id="policecar-group">
+                <a-entity rotation="0 -30 0" position="14 0.3 -22" gltf-model="#police-car" mixin="policar"></a-entity>
+                <a-entity rotation="0 165 0" position="-10.7 0.3 20" gltf-model="#police-car" mixin="policar"></a-entity>
+                <a-entity rotation="0 100 0" position="30 0.3 -8" gltf-model="#police-car" mixin="policar"></a-entity>
+                <a-entity rotation="0 140 0" position="-20 0.3 11" gltf-model="#police-car" mixin="policar"></a-entity>
+                <a-entity rotation="0 60 0" position="-25 0.3 -10" gltf-model="#police-car" mixin="policar"></a-entity>
+                <a-entity rotation="0 10 0" position="-0.6 0.3 10" gltf-model="#police-car" mixin="policar"></a-entity>
+                <a-entity rotation="0 60 0" position="40 0.3 10" gltf-model="#police-car" mixin="policar"></a-entity>
+                <a-entity rotation="0 100 0" position="52 0.3 4" gltf-model="#police-car" mixin="policar"></a-entity>
+            </a-entity>
+            <a-entity id="car-group">
+                <a-entity rotation="0 180 0" position="7 2 35" gltf-model="#class"
+                scale="1 1 1" dynamic-body="mass:4"></a-entity>
+                <a-obj-model position="21 0 -41" rotation="0 0 0" scale="0.03 0.03 0.03"
+                src="#ma-obj" mtl="#ma-mtl" dynamic-body="mass:4">
+                </a-obj-model>
+            </a-entity>
+            
+            <a-entity id="uncle" rotation="0 100 0" position="-24 -0.5 2">
+                <a-obj-model dynamic-body="mass:2" scale="0.03 0.03 0.03" src="#un-obj" mtl="#un-mtl">
+                </a-obj-model>
+            </a-entity>
+
+            <a-entity id="police-group">
+                <a-obj-model position="-15 0 -6" rotation="0 45 0"
+                            src="#poli-obj" mtl="#poli-mtl" mixin="police">
+                </a-obj-model>
+                <a-obj-model position="-10 0 6" rotation="0 115 0"
+                            src="#poli-obj" mtl="#poli-mtl" mixin="police">
+                </a-obj-model>
+                <a-obj-model position="13 0 2" rotation="0 15 0"
+                src="#poli-obj" mtl="#poli-mtl" 
+                mixin="police">
+                </a-obj-model>
+                <a-obj-model position="-20 0 2" rotation="0 0 0"
+                src="#poli-obj" mtl="#poli-mtl" 
+                mixin="police">
+                </a-obj-model>
+                <a-obj-model position="8 0 9" rotation="0 102 0"
+                src="#poli-obj" mtl="#poli-mtl" 
+                mixin="police">
+                </a-obj-model>
+                <a-obj-model position="11 0 -6" rotation="0 95 0"
+                src="#poli-obj" mtl="#poli-mtl" 
+                mixin="police">
+                </a-obj-model>
+                <a-obj-model position="20 0 0" rotation="0 95 0"
+                src="#poli-obj" mtl="#poli-mtl" 
+                mixin="police">
+                </a-obj-model>
+                <a-obj-model position="1 0 25" rotation="0 95 0"
+                src="#poli-obj" mtl="#poli-mtl" 
+                mixin="police">
+                </a-obj-model>
+                <a-obj-model position="-11 0 -26" rotation="0 95 0"
+                src="#poli-obj" mtl="#poli-mtl" 
+                mixin="police">
+                </a-obj-model>
+                <a-obj-model position="41 0 -35" rotation="0 95 0"
+                src="#poli-obj" mtl="#poli-mtl" 
+                mixin="police">
+                </a-obj-model>
+                <a-obj-model position="20 0 30" rotation="0 95 0"
+                src="#poli-obj" mtl="#poli-mtl" 
+                mixin="police">
+                </a-obj-model>
+                <a-obj-model position="-11 0 -46" rotation="0 95 0"
+                src="#poli-obj" mtl="#poli-mtl" 
+                mixin="police">
+                </a-obj-model>
+                <a-obj-model position="71 0 3" rotation="0 95 0"
+                src="#poli-obj" mtl="#poli-mtl" 
+                mixin="police">
+                </a-obj-model>
+                <a-obj-model position="-70 0 0" rotation="0 95 0"
+                src="#poli-obj" mtl="#poli-mtl" 
+                mixin="police">
+                </a-obj-model>
+            </a-entity> -->
+            </a-entity>
+        </a-scene>
+        <script src="js/steer.js"></script>
+        <script>
+            $('body').waitForImages({
+                finished: function() {
+                    $('.loading').addClass('loading-done');
+                    setTimeout(function(){
+                        $('.loading').slideUp();
+                    }, 1000);
+                },
+                waitForAll: true
+            });
+        </script>
+    </body>
+</html>
